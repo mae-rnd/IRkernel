@@ -1,23 +1,22 @@
-# Native R kernel for Jupyter [![b-CI]][CI] [![b-CRAN]][CRAN]
+# Native R kernel for Jupyter Lab
 
-[b-CI]: https://github.com/IRkernel/IRkernel/actions/workflows/r.yml/badge.svg "Build status"
-[CI]: https://github.com/IRkernel/IRkernel/actions/workflows/r.yml
-[b-CRAN]: https://www.r-pkg.org/badges/version/IRkernel "Comprehensive R Archive Network"
-[CRAN]: https://cran.r-project.org/package=IRkernel
+Fork from [github.com/IRkernel/IRkernel](https://github.com/IRkernel/IRkernel). 
 
-For detailed requirements and install instructions see [irkernel.github.io](https://irkernel.github.io/)
+This version fixes the error ```"jupyter-client has to be installed but “jupyter kernelspec --version” exited with code 127."```, which may occur when trying to install IRkernel with Jupyter Lab. This has been successfully tested on Debian 12 bookworm, with Jupyter Lab installed through ```pipx ```.
 
 ## Requirements
 
-* [Jupyter](https://jupyter.org).
+* [Jupyter Lab](https://jupyter.org).
 * A current [R installation](https://www.R-project.org).
 
 ## Installation
 
-This package is available on CRAN:
+```console
+R CMD install /path/to/IRkernel_1.3.2.9000.tar.gz
+```
+Then open R
 
 ```R
-install.packages('IRkernel')
 IRkernel::installspec()  # to register the kernel in the current R installation
 jupyter labextension install @techrah/text-shortcuts  # for RStudio’s shortcuts
 ```
