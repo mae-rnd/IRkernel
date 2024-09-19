@@ -19,7 +19,7 @@
 installspec <- function(
     user = NULL, name = 'ir', displayname = 'R', rprofile = NULL, prefix = NULL, sys_prefix = NULL, verbose = getOption('verbose'), env = NULL
 ) {
-    exit_code <- system2('jupyter', c('kernelspec', '--version'), FALSE, FALSE)
+    exit_code <- system2('jupyter-kernelspec', '--version', FALSE, FALSE)
     if (exit_code != 0)
         stop('jupyter-client has to be installed but ', dQuote('jupyter kernelspec --version'), ' exited with code ', exit_code, '.\n')
 
@@ -50,8 +50,8 @@ installspec <- function(
     prefix_flag <- if (!is.null(prefix)) c('--prefix', prefix) else character(0) 
     sys_prefix_flag <- if (!is.null(sys_prefix)) c('--sys-prefix', prefix) else character(0)
     quiet_flag <- if (!verbose) '--log-level=WARN' else character(0)
-    args <- c('kernelspec', 'install', '--replace', '--name', name, user_flag, prefix_flag, sys_prefix_flag, quiet_flag, file.path(tmp_name, 'kernelspec'))
-    exit_code <- system2('jupyter', args)
+    args <- c('install', '--replace', '--name', name, user_flag, prefix_flag, file.path(tmp_name, 'kernelspec'))
+    exit_code <- system2('jupyter-kernelspec', args)
     
     unlink(tmp_name, recursive = TRUE)
     
