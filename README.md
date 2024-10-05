@@ -12,7 +12,7 @@ This version fixes the error ```"jupyter-client has to be installed but “jupyt
 ## Installation
 
 ```console
-R CMD install /path/to/IRkernel_1.3.2.9000.tar.gz
+R CMD INSTALL /path/to/IRkernel_1.3.2.9000.tar.gz
 ```
 Then open R
 
